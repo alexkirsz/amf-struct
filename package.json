@@ -1,0 +1,29 @@
+{
+  "name": "amf-struct",
+  "description": "AMF0/AMF3 serializer and deserializer",
+  "author": "Alexandre Kirszenberg <a.kirszenberg@gmail.com>",
+  "version": "0.0.1",
+
+  "main": "./lib/index.js",
+
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:morhaus/amf-struct.git"
+  },
+
+  "scripts": {
+    "prepublish": "grunt"
+  },
+
+  "dependencies": {
+    "binary-struct": "0.1.*"
+  },
+
+  "devDependencies": {
+    "grunt": "*",
+    "grunt-cli": "*",
+    "grunt-contrib-watch": "*",
+    "grunt-contrib-coffee": "*",
+    "grunt-contrib-clean": "*"
+  }
+}
