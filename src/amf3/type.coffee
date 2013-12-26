@@ -3,7 +3,7 @@ struct = require 'binary-struct'
 
 { TYPES } = require './const'
 Int = require './int'
-_Array = require './array'
+Double = require './double'
 
 Undefined = struct ->
   @read = ->
@@ -32,14 +32,14 @@ getType = (type, meta) ->
     when TYPES.FALSE then False
     when TYPES.TRUE then True
     when TYPES.INTEGER then Int
-    when TYPES.DOUBLE then throw new Error "not implemented: #{type}"
+    when TYPES.DOUBLE then Double
     when TYPES.STRING then meta.amf3.string
     when TYPES.XML_DOC then throw new Error "not implemented: #{type}"
     when TYPES.DATE then throw new Error "not implemented: #{type}"
     when TYPES.ARRAY then meta.amf3.array
     when TYPES.OBJECT then meta.amf3.object
     when TYPES.XML then throw new Error "not implemented: #{type}"
-    when TYPES.BYTE_ARRAY then throw new Error "not implemented: #{type}"
+    when TYPES.BYTE_ARRAY then meta.amf3.byteArray
     else throw new Error "unsupported AMF3 type: #{type}"
 
 module.exports = struct (meta) ->

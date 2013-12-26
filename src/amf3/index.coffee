@@ -1,6 +1,8 @@
 module.exports =
   Type: require './type'
   Int: require './int'
+  Double: require './double'
+  ByteArray: require './byte-array'
   Array: require './array'
   Object: require './object'
   String: require './string'

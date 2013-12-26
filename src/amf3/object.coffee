@@ -3,6 +3,7 @@ struct = require 'binary-struct'
 
 { CLASS_ALIAS_REGISTRY } = require './const'
 UInt29 = require './uint29'
+flex = require './flex'
 
 module.exports = struct (meta) ->
   @read = ->
@@ -37,18 +38,14 @@ module.exports = struct (meta) ->
 
     if traits.isExternalizable
       # Read Externalizable
-      throw new Error "unsupported externalizable"
-      # try
-      #   if (traits.className.indexOf 'flex.') is 0
-      #     # Try to get a class
-      #     classParts = traits.className.split '.'
-      #     unqualifiedClassName = classParts[classParts.length - 1]
-      #     if unqualifiedClassName and flex[unqualifiedClassName]
-      #       object = @read flex[unqualifiedClassName]
-      #     else
-      #       object = @read meta.amf3.type
-      # catch e
-      #   throw new Error "unable to read externalizable data type '#{traits.className}': #{e}"
+      if (traits.className.indexOf 'flex.') is 0
+        # Try to get a class
+        classParts = traits.className.split '.'
+        unqualifiedClassName = classParts[classParts.length - 1]
+        if unqualifiedClassName and flex[unqualifiedClassName]
+          object = @read (flex[unqualifiedClassName] meta)
+        else
+          object = @read meta.amf3.type
 
     else
       object.members = {}

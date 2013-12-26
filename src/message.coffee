@@ -20,6 +20,7 @@ module.exports = struct ->
     type: amf3.Type meta
     string: amf3.String meta
     array: amf3.Array meta
+    byteArray: amf3.ByteArray meta
     object: amf3.Object meta
 
   @read = ->
