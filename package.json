@@ -2,7 +2,7 @@
   "name": "amf-struct",
   "description": "AMF0/AMF3 serializer and deserializer",
   "author": "Alexandre Kirszenberg <a.kirszenberg@gmail.com>",
-  "version": "0.0.1",
+  "version": "0.1.0",
 
   "main": "./lib/index.js",
 
